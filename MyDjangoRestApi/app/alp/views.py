@@ -4,8 +4,6 @@ from rest_framework import serializers
 from rest_framework.response import Response
 from app.alp.models import MyUser
 from app.alp.serializers import MyUserSerializer
-import requests
-import json
 
 
 class MyUserView(APIView):
