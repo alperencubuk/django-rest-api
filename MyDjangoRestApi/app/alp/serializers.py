@@ -1,9 +1,8 @@
-from django.contrib.auth.models import User
 from rest_framework import serializers
-from app.alp.models import MyUser
+from app.alp.models import User
 
 
-class MyUserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = MyUser
+        model = User
         fields = ('name', 'street')

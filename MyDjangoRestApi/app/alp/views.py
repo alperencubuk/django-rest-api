@@ -2,19 +2,19 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import serializers
 from rest_framework.response import Response
-from app.alp.models import MyUser
-from app.alp.serializers import MyUserSerializer
+from app.alp.models import User
+from app.alp.serializers import UserSerializer
 
 
-class MyUserView(APIView):
+class UserView(APIView):
     def get(self, request, *args, **kwargs):
-        users = MyUser.objects.all()
-        serializer = MyUserSerializer(users, many=True)
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
         return Response(serializer.data, status=200)
     
 
     def post(self, request, *args, **kwargs):
-        serializer = MyUserSerializer(data=request.data)
+        serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
